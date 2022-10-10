@@ -40,8 +40,8 @@ jobs:
           echo action: ${{ github.action }}
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        if: github.head_ref == 'main'
+      - name: Only print when the pipeline is merging to mail
+        if: github.ref_name == 'main'
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
