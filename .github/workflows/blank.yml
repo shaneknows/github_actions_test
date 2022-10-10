@@ -28,20 +28,20 @@ jobs:
       # Runs a single command using the runners shell
       - name: Variables
         run: |
-          echo ${{ github.github_ref_name }}
-          echo ${{ github.ref_name }}
-          echo ${{ github.ref_type }}
-          echo ${{ github.ref }}
-          echo ${{ github.ref_protected }}
-          echo ${{ github.head_ref }}
-          echo ${{ github.event }}
-          echo ${{ github.action_ref }}
-          echo ${{ github.action_path }}
-          echo ${{ github.action }}
+          echo github_ref_name: ${{ github.github_ref_name }}
+          echo ref_name: ${{ github.ref_name }}
+          echo ref_type: ${{ github.ref_type }}
+          echo ref: ${{ github.ref }}
+          echo ref_protected: ${{ github.ref_protected }}
+          echo head_ref: ${{ github.head_ref }}
+          echo event: ${{ github.event }}
+          echo action_ref: ${{ github.action_ref }}
+          echo action_path: ${{ github.action_path }}
+          echo action: ${{ github.action }}
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
-        if: ${{github.GITHUB_REF_NAME}} == 'main'
+        if: github.head_ref == 'main'
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
